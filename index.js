@@ -118,11 +118,9 @@ const licenseListGitHub = [
   }
 ];
 
-
-
 function extractLicenses() {
   let i=0;
-  licenseArrayName.push("");
+  licenseArrayName.push(`${i}. none `);
   for(const lic of licenseListGitHub) {
       i++;
       licenseArrayName.push(`${i}. ${lic.name}`);
@@ -130,7 +128,6 @@ function extractLicenses() {
   }
 
 }
-
 
 // TODO: Create an array of questions for user input
 const questions = [      
@@ -176,10 +173,14 @@ const questions = [
     waitUserInput: true,
   },
   {
-  type: 'editor',
-  name: 'questions',
-  message: 'Enter the Questions section content (press ESC and SHIFT-Z twice to exit the Editor):',
-  waitUserInput: true,
+  type: 'input',
+  name: 'github',
+  message: 'Enter your GitHub profile:',
+},
+{
+  type: 'input',
+  name: 'email',
+  message: 'Enter your e-mail address:',
 }
 ];
 
@@ -225,12 +226,10 @@ function init() {
   .prompt(questions)
   .then((response) => {
     console.log(response);  
-    writeToFile('README.MD',genMd.generateMarkdown(response));
+    writeToFile('README.md',genMd.generateMarkdown(response));
 
   });
 
 }
-
-
 // Function call to initialize app
 init();
