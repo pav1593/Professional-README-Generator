@@ -154,7 +154,7 @@ const questions = [
     waitUserInput: true,
   },
   {
-    type: 'list',
+    type: 'rawlist',
     name: 'license',
     message: 'Select a license to apply to License section:',
     choices: licenseArrayName,
