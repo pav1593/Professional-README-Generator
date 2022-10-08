@@ -218,12 +218,12 @@ function init() {
   console.log("\n");  
   console.log(header);
   console.log("\n");
-  console.log('Please follow the prompts to create a professional README.md markdown file for your porject.')
+  console.log('Please follow the prompts to create a professional README.md markdown file for your porject. The README file requires at a minimum a Title and a Description.\n')
   inquirer
   .prompt(questions)
   .then((response) => {
-    console.log(response);  
-    writeToFile('README.md',genMd.generateMarkdown(response));
+   
+    writeToFile('README_sample.md',genMd.generateMarkdown(response));
 
   });
 

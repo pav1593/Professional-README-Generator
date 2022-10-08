@@ -21,7 +21,7 @@ for(const lic of licenseContentGitHub) {
   if(license==='none') {
      return '';
   } else if (license===lic.name) {
-    return `[${lic.name}](${lic.html_url})`;
+    return `[${lic.name}](${lic.html_url})  `;
   }
 }
 
@@ -36,8 +36,10 @@ for(const lic of licenseContentGitHub) {
      return '';
   } else if (license===lic.name) {
     return `  
-    **License:** ${lic.name}  
-    **URL:** ${renderLicenseLink(license)}  
+    License: ${lic.name}  
+    
+    URL: ${renderLicenseLink(license)}  
+
     ${lic.description}  `;
   }
 }
