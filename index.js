@@ -120,13 +120,12 @@ const licenseListGitHub = [
 
 function extractLicenses() {
   let i=0;
-  licenseArrayName.push(`${i}. none `);
+  licenseArrayName.push(`none`);
   for(const lic of licenseListGitHub) {
       i++;
-      licenseArrayName.push(`${i}. ${lic.name}`);
+      licenseArrayName.push(`${lic.name}`);
       licenseArrayKey.push(lic.key);
   }
-
 }
 
 // TODO: Create an array of questions for user input
@@ -188,7 +187,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-
+      
     fs.writeFile(fileName,data,(error) =>
               error 
               ? console.error(error) 
@@ -221,7 +220,7 @@ function init() {
   console.log("\n");  
   console.log(header);
   console.log("\n");
-
+  console.log('Please follow the prompts to create a professional README.md markdown file for your porject.')
   inquirer
   .prompt(questions)
   .then((response) => {

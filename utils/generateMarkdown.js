@@ -357,7 +357,19 @@ const licenseContentGitHub = [
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  
+    for(const lic of licenseContentGitHub) {
+
+        if(license==='none') {
+           return '';
+        } else {
+          let key = lic.key.replace('-','_');
+          return `![License](https://img.shields.io/badge/License-${key}-blue.svg)`;
+        }
+    }
+
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -369,9 +381,10 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  const {title,description,installation,usage,contributing,tests,github,email} = data;
+  const {title,description,installation,license,usage,contributing,tests,github,email} = data;
 
-  return `# **${title}**  
+  return `${renderLicenseBadge(license)}  
+# **${title}**  
 
 ## **Description**
 ---
@@ -408,9 +421,9 @@ ${tests}
 ## **Questions**  
 ---
 
-==GitHub Profile==: *${github}*  
+**GitHub Profile:** *${github}*  
 
-==E-mail==: *${email}*  
+**E-mail:** *${email}*  
 
 `;
 }
